@@ -1,0 +1,22 @@
+{
+  "name": "three-js-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-learnthreejs:learnthreejs/three-js-boilerplate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "js-shortid": "^0.1.1",
+    "node-osc": "^2.1.0",
+    "socket.io": "^2.0.4",
+    "three-dragcontrols": "^0.88.1"
+  }
+}
