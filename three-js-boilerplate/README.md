@@ -16,4 +16,14 @@ Project Dependencies:
 "node-osc": "^2.1.0", : npm install node-osc
 "socket.io": "^2.0.4", : npm install socket.io
 
+For remote access on your phone:
+https://ngrok.com
+Save to documents or somewhere where you have easy access.
+
+ngrok will be listening on port 8000, so open another terminal tab and run ngrok by copying
+the path + port:
+e.g. /Users/default/Documents/ngrok http 8000
+
 Once everything is ready run 'node index.js'
+
+
