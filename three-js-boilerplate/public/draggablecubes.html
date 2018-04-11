@@ -1,0 +1,106 @@
+<html>
+
+
+
+  <head>
+    <title>Three.js Boilerplate</title>
+    <style>
+      body { margin: 0; }
+      canvas { width: 640px; height: 360px }
+    </style>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/87/three.min.js">
+      
+
+    </script>
+
+    <script src = "DragControls.js"></script>
+    <script src = "TrackballControls.js"></script>
+    <script src="ObjectControls.js"></script>
+
+    <script>
+
+
+/// -------
+
+var container,
+  renderer,
+  scene,
+  camera,
+  mesh,
+  start = Date.now(),
+  fov = 30, 
+  controls;
+  var objects = [];
+  var selection = null;
+  var offset = new THREE.Vector3()
+
+    // SCENE : 
+  var scene = new THREE.Scene();
+  scene.background = new THREE.Color("hsl(360, 20%, 80%)" );
+  //CAMERA : 
+  camera = new THREE.PerspectiveCamera(fov, window.innerWidth / window.innerHeight, 1, 10000);
+    camera.position.z = 200;
+
+
+  // CONTROLS:
+  controls = new THREE.TrackballControls( camera );
+        controls.rotateSpeed = 1.0;
+        controls.zoomSpeed = 1.2;
+        controls.panSpeed = 0.8;
+        controls.noZoom = false;
+        controls.noPan = false;
+        controls.staticMoving = true;
+        controls.dynamicDampingFactor = 0.3;
+
+
+
+// geo:
+var geometry = new THREE.BoxGeometry( 40, 40, 40 );
+        for ( var i = 0; i < 50; i ++ ) {
+          var object = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( { color: Math.random() * 0xffffff } ) );
+          object.position.x = Math.random() * 1000 - 500;
+          object.position.y = Math.random() * 600 - 300;
+          object.position.z = Math.random() * 800 - 400;
+          object.rotation.x = Math.random() * 2 * Math.PI;
+          object.rotation.y = Math.random() * 2 * Math.PI;
+          object.rotation.z = Math.random() * 2 * Math.PI;
+          object.scale.x = Math.random() * 2 + 1;
+          object.scale.y = Math.random() * 2 + 1;
+          object.scale.z = Math.random() * 2 + 1;
+          object.castShadow = true;
+          object.receiveShadow = true;
+          scene.add( object );
+          objects.push( object );
+        }
+
+  // RENDERER : 
+  var renderer = new THREE.WebGLRenderer();
+  renderer.setSize( window.innerWidth, window.innerHeight );
+  renderer.setPixelRatio( window.devicePixelRatio );
+  document.body.appendChild( renderer.domElement );
+
+ 
+var dragControls = new THREE.DragControls( objects, camera, renderer.domElement );
+        dragControls.addEventListener( 'dragstart', function ( event ) { controls.enabled = false; } );
+        dragControls.addEventListener( 'dragend', function ( event ) { controls.enabled = true;})
+
+
+    
+/// END OF DRAG CONTROLS ----- ////
+
+var animate = function () {
+ 
+  requestAnimationFrame( animate );
+
+
+  controls.update();
+  renderer.render(scene, camera);
+};
+
+animate();
+
+    </script>
+  </body>
+</html>
