@@ -1,18 +1,19 @@
 # Three.js boilerplate
 This is a simple three.js boilerplate for new projects, feel free to contribute!
 
-### Setup
-Run the setup script to make the repository your own!
+What is npm?
 
-```bash
-$ ./setup
-```
+npm makes it easy for JavaScript developers to share, update and reuse code.
 
-Install dependencies and start your engines! This ships with a simple express.js server so we can run three.js properly without cross-origin issues.
+npm is installed with Node.js.
 
-```bash
-$ npm install
-$ npm run start
-```
+Once inside the directory of this repo, run 'npm install' in your terminal, this will install the following dependencies
+(you can see them inside the package.json file):
 
-Open http://localhost:8080 to view your project.
+Project Dependencies:
+"express": "^4.16.2" : npm install express
+"js-shortid": "^0.1.1" : npm install js-shortid
+"node-osc": "^2.1.0", : npm install node-osc
+"socket.io": "^2.0.4", : npm install socket.io
+
+Once everything is ready run 'node index.js'
