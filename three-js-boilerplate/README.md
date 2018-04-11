@@ -1,6 +1,3 @@
-# Three.js boilerplate
-This is a simple three.js boilerplate for new projects, feel free to contribute!
-
 What is npm?
 
 npm makes it easy for JavaScript developers to share, update and reuse code.
